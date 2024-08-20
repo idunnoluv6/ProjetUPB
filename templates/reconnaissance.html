@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jeu de reconnaissance d'objet</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+    .chat-container {
+        max-width: 600px;
+        margin: 50px auto;
+        background-color: #f2f2f2;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 20px;
+        text-align: left;
+    }
+    .user-message {
+        background-color: #007bff;
+        color: white;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        display: inline-block;
+        max-width: 80%;
+    }
+    .bot-message {
+        background-color: #eee;
+        color: #333;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        display: inline-block;
+        max-width: 80%;
+    }
+    .input-container {
+        margin-top: 20px;
+    }
+    input[type="text"] {
+        padding: 10px;
+        font-size: 16px;
+        width: calc(100% - 20px);
+    }
+    button {
+        padding: 10px 20px;
+        font-size: 18px;
+        background-color: #007bff;
+        color: white;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        margin-top: 10px;
+    }
+</style>
+</head>
+<body>
+
+<div class="chat-container" id="chatContainer">
+    <div class="bot-message">Bienvenue dans le jeu de reconnaissance d'objet !</div>
+    <div class="bot-message">Devinez l'objet à partir des indices que je vais vous donner.</div>
+    <div class="bot-message">Commencez par regarder cette image :</div>
+    <img id="objectImage" src="car.jpg" alt="Image à deviner" style="max-width: 100%; max-height: 300px; margin-bottom: 10px;">
+    <div class="input-container">
+        <input type="text" id="userInput" placeholder="Entrez votre réponse...">
+        <button onclick="checkAnswer()">Vérifier</button>
+    </div>
+    <p id="result"></p>
+</div>
+
+<script>
+// Liste d'objets à deviner avec leurs indices et réponses
+var objectsToGuess = [
+    { image: "car.jpg", hint: "C'est un véhicule à quatre roues.", answer: "voiture" },
+    { image: "mountain.jpg", hint: "C'est une grande formation naturelle de la Terre.", answer: "montagne" },
+    // Ajoutez plus d'objets avec leurs indices et réponses ici
+];
+
+var currentObjectIndex = 0;
+var currentObject = objectsToGuess[currentObjectIndex];
+
+// Fonction pour ajouter un message de l'utilisateur dans le chat
+function addUserMessage(message) {
+    var chatContainer = document.getElementById('chatContainer');
+    var userMessageDiv = document.createElement('div');
+    userMessageDiv.className = 'user-message';
+    userMessageDiv.textContent = message;
+    chatContainer.appendChild(userMessageDiv);
+    chatContainer.scrollTop = chatContainer.scrollHeight; // Faire défiler vers le bas
+}
+
+// Fonction pour ajouter un message du bot dans le chat
+function addBotMessage(message) {
+    var chatContainer = document.getElementById('chatContainer');
+    var botMessageDiv = document.createElement('div');
+    botMessageDiv.className = 'bot-message';
+    botMessageDiv.textContent = message;
+    chatContainer.appendChild(botMessageDiv);
+    chatContainer.scrollTop = chatContainer.scrollHeight; // Faire défiler vers le bas
+}
+
+// Fonction pour vérifier la réponse de l'utilisateur
+function checkAnswer() {
+    var userInput = document.getElementById('userInput').value.trim().toLowerCase();
+    var correctAnswer = currentObject.answer.toLowerCase();
+
+    if (userInput === correctAnswer) {
+        addBotMessage("Correct ! Vous avez deviné l'objet correctement.");
+        // Passer au prochain objet après un court délai
+        setTimeout(nextObject, 2000);
+    } else {
+        addBotMessage("Incorrect. Essayez à nouveau.");
+    }
+
+    document.getElementById('userInput').value = ''; // Effacer l'entrée utilisateur après vérification
+}
+
+// Fonction pour passer au prochain objet à deviner
+function nextObject() {
+    currentObjectIndex++;
+    if (currentObjectIndex < objectsToGuess.length) {
+        currentObject = objectsToGuess[currentObjectIndex];
+        // Afficher l'image et l'indice du prochain objet à deviner
+        addBotMessage("Passons à l'objet suivant :");
+        document.getElementById('objectImage').src = currentObject.image;
+        addBotMessage(currentObject.hint);
+    } else {
+        addBotMessage("Félicitations ! Vous avez terminé le jeu.");
+        // Vous pouvez ajouter ici des actions supplémentaires après la fin du jeu
+    }
+}
+</script>
+
+</body>
+</html>

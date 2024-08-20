@@ -1,0 +1,232 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <title>Portal - Bootstrap 5 Admin Dashboard Template For Developers</title>
+    
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="description" content="Portal - Bootstrap 5 Admin Dashboard Template For Developers">
+    <meta name="author" content="Xiaoying Riley at 3rd Wave Media">    
+    <link rel="shortcut icon" href="favicon.ico"> 
+    
+    <!-- FontAwesome JS-->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="{% static 'assets/js/particles.js' %}"></script>
+    <script defer src="{% static 'assets/plugins/fontawesome/js/all.min.js' %}"></script>
+    
+    <!-- App CSS -->  
+    <link id="theme-style" rel="stylesheet" href="{% static 'assets/css/portal.css' %}">
+    
+    <style>
+        /* Style pour le texte de la page */
+        .page-title {
+            color: #007bff; /* Couleur du titre */
+            font-size: 3rem; /* Taille de police du titre */
+            margin-bottom: 1.5rem; /* Marge inférieure */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Ombre portée pour le texte */
+        }
+
+        /* Style pour les boutons */
+        .app-btn-primary {
+            background-color: #007bff; /* Couleur de fond des boutons */
+            border-color: #007bff; /* Couleur de la bordure des boutons */
+            color: #fff; /* Couleur du texte des boutons */
+            transition: all 0.3s ease; /* Transition fluide pour les effets de hover */
+            margin-right: 10px; /* Marge à droite des boutons */
+            margin-bottom: 10px; /* Marge en bas des boutons */
+            padding: 10px 20px; /* Remplissage des boutons */
+            border-radius: 5px; /* Bordure arrondie des boutons */
+            text-decoration: none; /* Pas de soulignement du texte */
+            display: inline-block; /* Affichage en ligne des boutons */
+        }
+
+        /* Effet de hover pour les boutons */
+        .app-btn-primary:hover {
+            background-color: #0056b3; /* Nouvelle couleur de fond au survol */
+            border-color: #0056b3; /* Nouvelle couleur de bordure au survol */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère au survol */
+            transform: translateY(-2px); /* Légère translation vers le haut */
+        }
+
+        /* Style pour le footer */
+        .app-footer {
+            background-color: #f8f9fa; /* Couleur de fond du footer */
+            padding: 15px 0; /* Remplissage du footer */
+            margin-top: 30px; /* Marge en haut du footer */
+            border-top: 1px solid #dee2e6; /* Bordure supérieure du footer */
+        }
+
+        /* Style pour le copyright dans le footer */
+        .copyright {
+            color: #6c757d; /* Couleur du texte du copyright */
+            font-size: 0.9rem; /* Taille de police du copyright */
+        }
+    </style>
+
+</head>
+
+<body class="app app-404-page">   	
+   
+    <div class="container mb-5">
+        <div class="row">
+            <div class="col-12 col-md-11 col-lg-7 col-xl-6 mx-auto">
+                <div class="app-branding text-center mb-5">
+                    <span class="logo-text">LOKI</span>
+                </div><!--//app-branding-->  
+                <div id="particles-js" class="app-card p-5 text-center shadow-sm">
+                    <h1 class="page-title mb-4"><br>FÉLICITATIONS !</h1>
+                    <span class="font-weight-light">Votre achat a bien été effectué</span>
+                    <div class="mb-4">
+                        Merci d'être LOKI
+                    </div>
+                    <a class="btn app-btn-primary" href="{% url 'affichage_vente' %}" onclick="continuerAchats()">Continuer les achats</a>
+                    <a class="btn app-btn-primary" href="{% url 'affichage_historique' %}" onclick="voirHistorique()">Voir mon historique</a>
+                </div>
+            </div><!--//col-->
+        </div><!--//row-->
+    </div><!--//container-->
+    
+   
+    
+    <footer class="app-footer">
+	    <div class="container text-center py-3">
+           
+	    </div>
+    </footer><!--//app-footer-->
+
+    <!-- Javascript -->          
+    <script src="{% static 'assets/plugins/popper.min.js' %}"></script>
+    <script src="{% static 'assets/plugins/bootstrap/js/bootstrap.min.js' %}"></script>  
+    
+    <script>
+        // Fonction pour le bouton "Continuer les achats"
+        function continuerAchats() {
+            alert("Vous avez choisi de continuer les achats.");
+            // Ajoutez ici le code JavaScript pour effectuer une action spécifique
+        }
+        
+        // Fonction pour le bouton "Voir mon historique"
+        function voirHistorique() {
+            alert("Vous avez choisi de voir votre historique.");
+            // Ajoutez ici le code JavaScript pour effectuer une action spécifique
+        }
+    </script>
+    <script>
+        particlesJS("particles-js", {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#ffffff"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    },
+                    "polygon": {
+                        "nb_sides": 5
+                    },
+                    "image": {
+                        "src": "img/github.svg",
+                        "width": 100,
+                        "height": 100
+                    }
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": false,
+                    "anim": {
+                        "enable": false,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 40,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#ffffff",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 6,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "repulse"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 400,
+                        "line_linked": {
+                            "opacity": 1
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 200,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+    </script>
+    
+</body>
+</html> 
