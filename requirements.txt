@@ -11,6 +11,7 @@ django-paypal==2.1
 django-utils2==3.0.2
 djangorestframework==3.14.0
 idna==3.4
+gunicorn==23.0.0
 paypalrestsdk==1.13.3
 pillow==10.4.0
 psycopg2-binary==2.9.9
