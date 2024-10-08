@@ -82,8 +82,6 @@ PAYPAL_MODE = 'sandbox'  # 'sandbox' pour l'environnement de test, 'live' pour l
 PAYPAL_CLIENT_ID = 'Votre_Client_ID_PayPal'
 PAYPAL_CLIENT_SECRET = 'Votre_Client_Secret_PayPal'
 
-import paypalrestsdk
-
 PAYPAL_RECEIVER_EMAIL = 'ephragode01@icloud.com'
 
 # Configurer l'authentification
