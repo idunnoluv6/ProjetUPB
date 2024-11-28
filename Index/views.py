@@ -5,6 +5,7 @@ from Models import models
 from django.http import HttpRequest, HttpResponse
 
 
+
 def affichage_index(request):
     user = request.user
     annonces_list = models.annonces.objects.count()  # Récupère toutes les annonces
